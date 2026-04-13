@@ -4,66 +4,122 @@ body {
   background: linear-gradient(120deg,#f5f7fa,#e3f2fd);
 }
 
-.dark {
-  background: #121212;
-  color: white;
-}
-
+/* HEADER */
 header {
   background: rgba(0,0,0,0.9);
   color: white;
   padding: 15px 30px;
   display: flex;
   justify-content: space-between;
-  align-items:center;
+  align-items: center;
+  position: sticky;
+  top: 0;
 }
 
 nav a {
-  color:white;
-  margin:10px;
-  text-decoration:none;
+  color: white;
+  margin: 10px;
+  text-decoration: none;
+  position: relative;
 }
 
+nav a:hover {
+  color: #00bcd4;
+}
+
+/* CART BADGE */
 .cart-count {
-  background:red;
-  padding:3px 7px;
-  border-radius:50%;
-  font-size:12px;
+  background: red;
+  border-radius: 50%;
+  padding: 3px 7px;
+  font-size: 12px;
 }
 
+/* PRODUCTS */
 .products {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
-  padding:40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 50px;
+  justify-items: center;
 }
 
+/* PREMIUM CARD */
 .product {
-  background:white;
-  border-radius:15px;
-  overflow:hidden;
-  transition:0.3s;
+  width: 100%;
+  max-width: 320px;
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+  transition: 0.4s ease;
+  position: relative;
 }
 
+/* hover daha premium */
 .product:hover {
-  transform: translateY(-10px);
+  transform: translateY(-12px) scale(1.05);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.25);
 }
 
+/* IMAGE */
 .product img {
-  width:100%;
-  height:200px;
-  object-fit:cover;
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  transition: 0.4s;
 }
 
+.product:hover img {
+  transform: scale(1.1);
+  filter: brightness(0.85);
+}
+
+/* CONTENT */
 .product-content {
-  padding:15px;
+  padding: 18px;
+  text-align: center;
 }
 
+.product h3 {
+  margin: 10px 0 5px;
+  font-size: 18px;
+}
+
+.product p {
+  color: #00bcd4;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* BADGE (yeni eklenen premium detay) */
+.product::before {
+  content: "TREND";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: linear-gradient(45deg,#ff512f,#dd2476);
+  color: white;
+  font-size: 10px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  z-index: 2;
+}
+
+/* BUTTON */
 button {
-  background:#00bcd4;
-  color:white;
-  border:none;
-  padding:10px;
-  width:100%;
-  border-radius:8px;
+  margin-top: 10px;
+  background: linear-gradient(45deg,#00bcd4,#2196f3);
+  border: none;
+  padding: 10px;
+  width: 100%;
+  border-radius: 12px;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
 }

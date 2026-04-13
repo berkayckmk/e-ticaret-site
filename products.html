@@ -4,6 +4,7 @@
 <title>Ürünler</title>
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body onload="updateCartCount()">
 
 <header>
@@ -18,43 +19,65 @@
 <div class="products" id="list"></div>
 
 <script>
-let products=[
-{name:'Akıllı Saat',price:1200,img:'https://picsum.photos/300?1'},
-{name:'Kulaklık',price:800,img:'https://picsum.photos/300?2'},
-{name:'Telefon',price:7000,img:'https://picsum.photos/300?3'},
-{name:'Laptop',price:15000,img:'https://picsum.photos/300?4'},
-{name:'Tablet',price:5000,img:'https://picsum.photos/300?5'},
-{name:'Kamera',price:9000,img:'https://picsum.photos/300?6'},
-{name:'Ayakkabı',price:1200,img:'https://picsum.photos/300?7'},
-{name:'Çanta',price:900,img:'https://picsum.photos/300?8'},
-{name:'Gözlük',price:600,img:'https://picsum.photos/300?9'},
-{name:'Mouse',price:400,img:'https://picsum.photos/300?10'},
-{name:'Klavye',price:700,img:'https://picsum.photos/300?11'},
-{name:'Hoparlör',price:1100,img:'https://picsum.photos/300?12'}
+let products = [
+{
+  name: "Akıllı Saat",
+  price: 1200,
+  img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30"
+},
+{
+  name: "Kablosuz Kulaklık",
+  price: 800,
+  img: "https://images.unsplash.com/photo-1583394838336-acd977736f90"
+},
+{
+  name: "Akıllı Telefon",
+  price: 7000,
+  img: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9"
+},
+{
+  name: "Laptop",
+  price: 15000,
+  img: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853"
+},
+{
+  name: "Tablet",
+  price: 5000,
+  img: "https://images.unsplash.com/photo-1587033411391-5d9e51cce126"
+},
+{
+  name: "Dijital Kamera",
+  price: 9000,
+  img: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32"
+},
+{
+  name: "Sneaker Ayakkabı",
+  price: 1200,
+  img: "https://images.unsplash.com/photo-1528701800489-20be3c1ea4e9"
+},
+{
+  name: "Sırt Çantası",
+  price: 900,
+  img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62"
+}
 ];
 
-let html='';
-products.forEach((p,i)=>{
-html+=`<div class="product" style="animation:fadeIn 0.5s ease ${i*0.1}s forwards; opacity:0">
+let html="";
+products.forEach(p=>{
+html += `
+<div class="product">
 <img src="${p.img}" onclick="goDetail('${p.name}',${p.price},'${p.img}')">
 <div class="product-content">
 <h3>${p.name}</h3>
 <p>${p.price} TL</p>
 <button onclick="addToCart('${p.name}',${p.price})">Sepete Ekle</button>
-</div></div>`;
+</div>
+</div>`;
 });
 
-document.getElementById('list').innerHTML=html;
+document.getElementById("list").innerHTML = html;
 </script>
 
 <script src="script.js"></script>
-
-<style>
-@keyframes fadeIn {
-from {opacity:0; transform:translateY(20px);} 
-to {opacity:1; transform:translateY(0);} 
-}
-</style>
-
 </body>
 </html>

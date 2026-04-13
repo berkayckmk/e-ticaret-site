@@ -4,25 +4,50 @@
 <title>Ödeme</title>
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    /*
+
 <header>
 <h2>MyShop</h2>
 <nav>
 <a href="index.html">Ana Sayfa</a>
 <a href="products.html">Ürünler</a>
 <a href="cart.html">Sepet</a>
-<a href="login.html">Giriş</a>
 </nav>
 </header>
-*/
-<header><h2>Ödeme</h2></header>
-<div class="container">
+
+<div style="padding:40px; max-width:400px; margin:auto">
+
 <h2>Ödeme Bilgileri</h2>
-<input placeholder="Kart Numarası"><br><br>
-<input placeholder="Son Kullanma"><br><br>
+
+<input placeholder="Kart No"><br><br>
+<input placeholder="İsim"><br><br>
+<input placeholder="AA/YY"><br><br>
 <input placeholder="CVV"><br><br>
-<button onclick="alert('Ödeme başarılı (demo)')">Öde</button>
+
+<button onclick="pay()">Ödemeyi Yap</button>
+
+<div id="status"></div>
+
 </div>
+
+<script>
+function pay(){
+  let status = document.getElementById("status");
+  status.innerHTML = "⏳ İşleniyor...";
+
+  setTimeout(()=>{
+    let ok = Math.random() > 0.2;
+
+    if(ok){
+      status.innerHTML = "✅ Ödeme başarılı!";
+      localStorage.removeItem("cart");
+    } else {
+      status.innerHTML = "❌ Ödeme başarısız";
+    }
+  },2000);
+}
+</script>
+
 </body>
 </html>
